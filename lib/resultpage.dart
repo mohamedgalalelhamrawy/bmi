@@ -44,22 +44,22 @@ class ResultPage extends StatelessWidget {
           children: [
             Text(
               "Gender:${ismale == true ? "male" : "female"}",
-              style: Theme.of(context).textTheme.labelMedium,
+              style: Theme.of(context).textTheme.labelLarge,
               textAlign: TextAlign.center,
             ),
             Text(
               "Result:${result.toStringAsFixed(1)}",
-              style: Theme.of(context).textTheme.labelMedium,
+              style: Theme.of(context).textTheme.labelLarge,
               textAlign: TextAlign.center,
             ),
             Text(
               "Healthiness:$resultphares",
-              style: Theme.of(context).textTheme.labelMedium,
+              style: Theme.of(context).textTheme.labelLarge,
               textAlign: TextAlign.center,
             ),
             Text(
               "age:$age",
-              style: Theme.of(context).textTheme.labelMedium,
+              style: Theme.of(context).textTheme.labelLarge,
               textAlign: TextAlign.center,
             )
           ],

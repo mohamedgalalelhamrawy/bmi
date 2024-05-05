@@ -17,11 +17,12 @@ class Bmi extends StatelessWidget {
         primaryColor: Colors.teal,
         canvasColor: Colors.black,
         textTheme: const TextTheme( 
-            labelMedium:TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold,)
+            labelLarge:TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold,),
+            labelMedium: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold,)
         )
       ),
-      // home:  HomePage(),
-      home: ResultPage(age: 26,ismale: true,result: 18.4,),
+      home:  HomePage(),
+      // home: ResultPage(age: 26,ismale: true,result: 18.4,),
     );
   }
 }
