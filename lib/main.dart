@@ -11,7 +11,14 @@ class Bmi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp( 
-      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData( 
+        primaryColor: Colors.teal,
+        canvasColor: Colors.black,
+        textTheme: TextTheme( 
+
+        )
+      ),
       home:  HomePage(),
     );
   }

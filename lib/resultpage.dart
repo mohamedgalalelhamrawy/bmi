@@ -8,6 +8,12 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold( 
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text("Rusult",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+      ) ,
+    );
   }
 }

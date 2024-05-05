@@ -10,6 +10,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold( 
+      
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text("Body Mass Index",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+      ) ,
+    );
   }
 }
