@@ -1,4 +1,5 @@
 import 'package:bmi/home.dart';
+import 'package:bmi/resultpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,11 +16,12 @@ class Bmi extends StatelessWidget {
       theme: ThemeData( 
         primaryColor: Colors.teal,
         canvasColor: Colors.black,
-        textTheme: TextTheme( 
-
+        textTheme: const TextTheme( 
+            labelMedium:TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold,)
         )
       ),
-      home:  HomePage(),
+      // home:  HomePage(),
+      home: ResultPage(age: 26,ismale: true,result: 18.4,),
     );
   }
 }
