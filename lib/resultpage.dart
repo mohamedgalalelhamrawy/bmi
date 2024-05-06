@@ -15,7 +15,7 @@ class ResultPage extends StatelessWidget {
     String resultpha = "";
     if (result >= 30) {
       resultpha = "obese";
-    } else if (result >= 25 && result > 30) {
+    } else if (result >= 25 && result < 30) {
       resultpha = "overweight";
     } else if (result >= 18.5 && result < 25) {
       resultpha = "normal";
@@ -31,7 +31,7 @@ class ResultPage extends StatelessWidget {
       backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text(
+        title: const Text(
           "Rusult",
           style: TextStyle(color: Colors.white),
         ),

@@ -2,9 +2,9 @@
 import 'dart:math';
 
 import 'package:bmi/resultpage.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 
 class HomePage extends StatefulWidget {
@@ -106,11 +106,11 @@ class _HomePageState extends State<HomePage> {
                 }));
               },
               child: Container( 
-                margin: EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(bottom: 10),
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 color: Colors.teal,
-                child: Center(
+                child: const Center(
                   child: Text("Calculate",style: TextStyle(
                     color: Colors.white,fontSize: 22,
                     
