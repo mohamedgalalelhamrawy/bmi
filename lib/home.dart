@@ -10,6 +10,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  bool ismale = true;
+  int age = 20;
+  double heightval = 170;
+  double weight = 70;
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
@@ -19,26 +24,45 @@ class _HomePageState extends State<HomePage> {
         title: Text("Body Mass Index",style: TextStyle(color: Colors.white),),
         centerTitle: true,
       ) ,
-      body: Column(
-        children: [
-        Expanded(
-          child: Row( children: [
-            Expanded(
+      body: Padding(
+       padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+          Expanded(
+            child: Row( children: [
+              m1expanded(context,"male"),
+              SizedBox(width: 15,),
+              m1expanded(context,"female"),
+            ],),
+          )
+        ],),
+      ),
+    );
+  }
+
+  Expanded m1expanded(BuildContext context ,String Type ) {
+    return Expanded(
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  ismale = Type=="male" ?true : false;
+                });
+              },
               child: Container( 
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.all(20),
-                color: Colors.teal,
+                decoration: BoxDecoration(
+                     color: (Type=="male" && ismale == true) || (Type=="female" && ismale== false) ? Colors.teal : Colors.blueGrey,
+                     borderRadius: BorderRadius.circular(8)
+                ),
+                padding: EdgeInsets.symmetric(vertical: 15), 
+                margin: EdgeInsets.symmetric(vertical: 15),  
                 child: Column(
                 children: [
-                  Icon(Icons.male,size: 50,color: Colors.white,),
+                  Icon(Type=="male" ? Icons.male : Icons.female,size: 70,color: Colors.white,),
                   SizedBox(height: 8,),
-                  Text("Male",style: Theme.of(context).textTheme.labelMedium,)
+                  Text(Type=="male" ?"Male" : "Female",style: Theme.of(context).textTheme.labelMedium,)
                 ],
               ),),
-            )
-          ],),
-        )
-      ],),
-    );
+            ),
+          );
   }
 }
