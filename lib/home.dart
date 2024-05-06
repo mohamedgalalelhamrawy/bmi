@@ -12,16 +12,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool ismale = true;
   int age = 20;
-  double heightval = 170;
+  double heightvalue = 170;
   int weight = 70;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text(
+        title: const Text(
           "Body Mass Index",
           style: TextStyle(color: Colors.white),
         ),
@@ -42,6 +42,46 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            // /////////////////////////////////
+            Expanded(
+                child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.blueGrey,
+                  borderRadius: BorderRadius.circular(8)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Height",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(heightvalue.toStringAsFixed(1),
+                          style: Theme.of(context).textTheme.headlineLarge),
+                      Text(
+                        "CM",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      )
+                    ],
+                  ),
+                  Slider(
+                    activeColor: Colors.teal ,
+                    min: 130,
+                    max: 220,
+                    value: heightvalue, onChanged: (double newvalue){
+                      setState(() {
+                        heightvalue = newvalue;
+                      });
+                  })
+                ],
+              ),
+            )),
+            // /////////////////////////////////
             Expanded(
               child: Row(
                 children: [
@@ -103,7 +143,7 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(
             color: Colors.blueGrey, borderRadius: BorderRadius.circular(8)),
         padding: const EdgeInsets.symmetric(vertical: 15),
-        margin: const EdgeInsets.only(bottom: 15),
+        margin: const EdgeInsets.symmetric(vertical: 15),
         child: Column(
           children: [
             Text(
@@ -112,38 +152,43 @@ class _HomePageState extends State<HomePage> {
             ),
             Text(Type == "weight" ? weight.toString() : age.toString(),
                 style: Theme.of(context).textTheme.headlineLarge),
-           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-               FloatingActionButton.small(
-                backgroundColor: Colors.teal,
-                onPressed: (){
-              setState(() {
-                Type == "weight" ? weight -- : age--;
-              });
-            },
-            heroTag: Type == "weight" ? "weight--" : "age--",
-            child: Icon(Icons.remove,color: Colors.white,),
-            )  ,
-            SizedBox(width: 10,),
-            FloatingActionButton.small(
-              backgroundColor: Colors.teal,
-              onPressed: (){
-              setState(() {
-                Type == "weight" ? weight ++ : age++;
-              });
-            },
-            heroTag: Type == "weight" ? "weight++" : "age++",
-            child: Icon(Icons.add,color: Colors.white,),
-            )    
-            ],
-           )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton.small(
+                  backgroundColor: Colors.teal,
+                  onPressed: () {
+                    setState(() {
+                      Type == "weight" ? weight-- : age--;
+                    });
+                  },
+                  heroTag: Type == "weight" ? "weight--" : "age--",
+                  child: Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                FloatingActionButton.small(
+                  backgroundColor: Colors.teal,
+                  onPressed: () {
+                    setState(() {
+                      Type == "weight" ? weight++ : age++;
+                    });
+                  },
+                  heroTag: Type == "weight" ? "weight++" : "age++",
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
-
-
- 
