@@ -1,6 +1,11 @@
+
+import 'dart:math';
+
+import 'package:bmi/resultpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -92,7 +97,27 @@ class _HomePageState extends State<HomePage> {
                   m2expanded(context, "age"),
                 ],
               ),
-            ),
+            ), 
+            // ///////////////////////////button
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return ResultPage(ismale: ismale, age: age, result: weight/pow(heightvalue/100, 2));
+                }));
+              },
+              child: Container( 
+                margin: EdgeInsets.only(bottom: 10),
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 8),
+                color: Colors.teal,
+                child: Center(
+                  child: Text("Calculate",style: TextStyle(
+                    color: Colors.white,fontSize: 22,
+                    
+                  ),),
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -163,12 +188,12 @@ class _HomePageState extends State<HomePage> {
                     });
                   },
                   heroTag: Type == "weight" ? "weight--" : "age--",
-                  child: Icon(
+                  child: const Icon(
                     Icons.remove,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 FloatingActionButton.small(
@@ -179,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                     });
                   },
                   heroTag: Type == "weight" ? "weight++" : "age++",
-                  child: Icon(
+                  child: const Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
